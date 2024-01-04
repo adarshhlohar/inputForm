@@ -1,92 +1,76 @@
 <!DOCTYPE html>
-
 <html>
 
 <head>
-
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width">
-
     <title>Basic input types</title>
-
     <link rel="stylesheet" href="../css/simple_form.css">
-
-    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-    <form>
+<body>
+    
+    <form method="post">
         <header class="headerContainer">
             <h1>HTML 5 Form Input Fields</h1>
         </header>
 
         <div>
-            <label for="text">text input type for Name: </label>
-
-            <input type="text" id="text" name="text">
-
-            <error-output class="text-error" for="text"></error-output>
+            <label for="name">text input type for Name: </label>
+            <input type="text" id="name" name="text" required>
         </div>
+        <div class="text-error" id="nameError"></div>
 
         <div>
             <label for="pwd">password input type: </label>
-
-            <input type="password" id="pwd" name="pwd">
+            <input type="password" id="pwd" name="pwd" required>
         </div>
 
         <div>
             <label for="email">email input type: </label>
-
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required>
         </div>
 
         <div>
             <label for="url">url input type: </label>
-
-            <input type="url" id="url" name="url">
+            <input type="url" id="url" name="url" required>
         </div>
 
         <div>
             <label for="number">number input type: </label>
-
-            <input types="number" id="number" name="number">
+            <input type="number" id="number" name="number" required>
         </div>
 
         <div>
             <label for="tel">tel input type: </label>
-
-            <input type="tel" id="tel" name="tel">
+            <input type="tel" id="tel" name="tel" required>
         </div>
 
         <div>
-            <label for="search"> search input type: </label>
-
-            <input type="search" iod="search" name="search">
+            <label for="search">search input type: </label>
+            <input type="search" id="search" name="search">
         </div>
 
         <div class="nativeDateTimePicker">
-            <label for="party">Choose a date and time:</label> <input type="datetime-local" id="party" name="bday">
-
+            <label for="party">Choose a date and time:</label>
+            <input type="datetime-local" id="party" name="bday">
             <span class="validity"></span>
         </div>
 
         <div>
             <label for="salary">Choose your salary: </label>
-
             <input type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000">
-
             <output class="salary-output" for="salary">480000</output>
         </div>
+        
+        
 
         <div>
-            <button>Submit</button>
+            <button onclick="handleSubmit()" id="submit" disabled>Submit</button>
         </div>
     </form>
-
-
-
+    <script src="script.js"></script>
 </body>
 
 </html>

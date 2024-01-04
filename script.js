@@ -1,27 +1,28 @@
 
+var salaryInput = document.getElementById('salary');
+            var output = document.querySelector('.salary-output');
         
-const text = document.querySelector("#text");
+            salaryInput.addEventListener('input', function() {
+                output.textContent = salaryInput.value;
+            });
 
-const textError = document.querySelector('.text-error');
 
-text.addEventListener('input', function() {
+const submit = document.getElementById("submit");
+const name = document.getElementById("name")
+const nameError = document.getElementById("nameError");
 
-let nameRegex = RegExp('^[A-Z]{1} [a-z]{2,}$');
-
-if (nameRegex.test(text.value)){
-
-textError.textContent = "";
-}
-
-else textError.textContent = "Name is Incorrect";
-
+name.addEventListener("blur", () => {
+    console.log("name has been blured")
+    let regex = /^[A-Z]{1}[a-zA-Z]{2,9}$/;
+    let str = name.value;
+    if(regex.test(str)){
+        console.log(`This is valid ${str}`);
+        submit.removeAttribute("disabled");
+        nameError.style.display = "none";
+    }else{
+        console.log(`This is not valid ${str}`);
+        submit.setAttribute("disabled","true");
+        nameError.style.display = "block";
+        nameError.innerText = "First name starts with Cap and has minimum 3 characters";
+    }
 });
-
-const salary = document.querySelector("#salary");
-
-const output = document.querySelector(".salary-output");
-
-output.textContent = salary.value;
-
-salary.addEventListener('input', function() { output.textContent = salary.value
-})
