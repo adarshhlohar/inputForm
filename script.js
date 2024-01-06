@@ -10,6 +10,8 @@ var salaryInput = document.getElementById('salary');
 const submit = document.getElementById("submit");
 const name = document.getElementById("name");
 const email = document.getElementById("email");
+const number = document.getElementById("number");
+
 
 const nameError = document.getElementById("nameError");
 
@@ -46,4 +48,21 @@ email.addEventListener("blur", ()=>{
     }
 });
 
+
+number.addEventListener("blur", ()=>{
+    console.log("The number has been blured");
+    let regex = /^91 [0-9]{10}/;
+    let str = number.value;
+
+    if (regex.test(str)) {
+        console.log(`This is valid ${str}`);
+        submit.removeAttribute("disabled");
+        numberError.style.display = "none";
+    }else{
+        console.log(`This not valid ${str}`);
+        submit.setAttribute("disabled","true");
+        numberError.innerText = "Country code follow by space and 10 digit number";
+        numberError.style.display = "block";
+    }
+});
 
