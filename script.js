@@ -11,9 +11,8 @@ const submit = document.getElementById("submit");
 const name = document.getElementById("name");
 const email = document.getElementById("email");
 const number = document.getElementById("number");
+const pwd = document.getElementById("pwd");
 
-
-const nameError = document.getElementById("nameError");
 
 name.addEventListener("blur", () => {
     console.log("name has been blured")
@@ -65,4 +64,21 @@ number.addEventListener("blur", ()=>{
         numberError.style.display = "block";
     }
 });
+
+pwd.addEventListener("blur",()=>{
+    console.log("the pwd is blured");
+    let regex = /^[a-zA-Z0-9]{8,}/
+    let str = pwd.value;
+
+    if (regex.test(str)) {
+        console.log(`This is valid ${str}`);
+        submit.removeAttribute("disabled");
+        pwdError.style.display = "none";
+    }else{
+        console.log(`This is not valid ${str}`);;
+        submit.setAttribute("disabled","true");
+        pwdError.innerText = "Minimum 8 Characters";
+        pwdError.style.display = "block";
+    }
+})
 
