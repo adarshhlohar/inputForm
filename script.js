@@ -67,7 +67,7 @@ number.addEventListener("blur", ()=>{
 
 pwd.addEventListener("blur",()=>{
     console.log("the pwd is blured");
-    let regex = /^[a-zA-Z0-9]{8,}/
+    let regex = /^[A-Z]{1,}[A-Za-z0-9]{4,}[@#$%&*][a-z0-9]{1,}/
     let str = pwd.value;
 
     if (regex.test(str)) {
@@ -77,7 +77,7 @@ pwd.addEventListener("blur",()=>{
     }else{
         console.log(`This is not valid ${str}`);;
         submit.setAttribute("disabled","true");
-        pwdError.innerText = "Minimum 8 Characters";
+        pwdError.innerText = "Minimum 8 Characters atlist 1 cap 1 special char 1 number";
         pwdError.style.display = "block";
     }
 })
